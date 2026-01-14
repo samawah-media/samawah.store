@@ -1,0 +1,29 @@
+import NextAuth from "next-auth"
+
+const handler = NextAuth({
+  providers: [
+    {
+      id: "salla",
+      name: "Salla",
+      type: "oauth",
+      // التغيير هنا: وضعنا الرابط كاملاً كسلسلة نصية لمنع المكتبة من إضافة أي شيء من عندها
+      authorization: "https://accounts.salla.sa/oauth2/auth?response_type=code&scope=offline_access%20readonly",
+      token: "https://accounts.salla.sa/oauth2/token",
+      userinfo: "https://accounts.salla.sa/oauth2/user/info",
+      clientId: process.env.SALLA_CLIENT_ID,
+      clientSecret: process.env.SALLA_CLIENT_SECRET,
+      profile(profile) {
+        return {
+          id: profile.data.id,
+          name: profile.data.name,
+          email: profile.data.email,
+          image: profile.data.avatar,
+        }
+      },
+    },
+  ],
+  secret: "testing_secret_123", 
+  debug: true,
+})
+
+export { handler as GET, handler as POST }
