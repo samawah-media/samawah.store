@@ -31,15 +31,15 @@ export const metadata: Metadata = {
     default: "متجر سماوة - متجر إبداعي، لإثراء المحتوى ونشر الثقافة والمعرفة",
     template: "%s | متجر سماوة",
   },
-  description: "متجر إبداعي، لإثراء المحتوى ونشر الثقافة والمعرفة. نقدم مجلة هدنة والفعاليات الثقافية والتقارير البحثية.",
+  description: "تجد مجلة هدنة والفعاليات الثقافية والتقارير الإعلامية.",
   keywords: ["مجلة هدنة", "سماوة", "متجر ثقافي", "مجلات سعودية", "فعاليات ثقافية", "تقارير بحثية"],
   authors: [{ name: "سماوة" }],
   creator: "سماوة",
   publisher: "سماوة",
   icons: {
-    icon: "/images/favicon.ico",
-    shortcut: "/images/favicon.ico",
-    apple: "/images/favicon.ico",
+    icon: "/images/favicon.ico.png",
+    shortcut: "/images/favicon.ico.png",
+    apple: "/images/favicon.ico.png",
   },
   formatDetection: {
     telephone: true,
@@ -51,10 +51,10 @@ export const metadata: Metadata = {
     locale: "ar_SA",
     siteName: "متجر سماوة",
     title: "متجر سماوة - متجر إبداعي، لإثراء المحتوى ونشر الثقافة والمعرفة",
-    description: "متجر إبداعي، لإثراء المحتوى ونشر الثقافة والمعرفة. نقدم مجلة هدنة والفعاليات الثقافية والتقارير البحثية.",
+    description: "تجد مجلة هدنة والفعاليات الثقافية والتقارير الإعلامية.",
     images: [
       {
-        url: "/images/favicon.ico",
+        url: "/images/favicon.ico.png",
         width: 512,
         height: 512,
         alt: "متجر سماوة",
@@ -64,8 +64,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "متجر سماوة - متجر إبداعي، لإثراء المحتوى ونشر الثقافة والمعرفة",
-    description: "متجر إبداعي، لإثراء المحتوى ونشر الثقافة والمعرفة. نقدم مجلة هدنة والفعاليات الثقافية والتقارير البحثية.",
-    images: ["/images/favicon.ico"],
+    description: "تجد مجلة هدنة والفعاليات الثقافية والتقارير الإعلامية.",
+    images: ["/images/favicon.ico.png"],
   },
   robots: {
     index: true,
