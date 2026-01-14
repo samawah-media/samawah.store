@@ -3,6 +3,9 @@ import MagazineDetails from '@/components/features/magazine/MagazineDetails';
 import EventDetails from '@/components/features/event/EventDetails';
 import { notFound } from 'next/navigation';
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic';
+
 // Known Product IDs
 const MAGAZINE_PRODUCT_ID = '548271829';
 const EVENT_PRODUCT_ID = '1367448884';
@@ -10,8 +13,6 @@ const EVENT_PRODUCT_ID = '1367448884';
 interface ProductPageProps {
     params: Promise<{ id: string }>;
 }
-
-export const revalidate = 3600; // Revalidate every hour
 
 export default async function ProductPage({ params }: ProductPageProps) {
     const { id } = await params;
@@ -37,12 +38,4 @@ export default async function ProductPage({ params }: ProductPageProps) {
             )}
         </main>
     );
-}
-
-// Generate static params for known products
-export async function generateStaticParams() {
-    return [
-        { id: MAGAZINE_PRODUCT_ID },
-        { id: EVENT_PRODUCT_ID },
-    ];
 }
