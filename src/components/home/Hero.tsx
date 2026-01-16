@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { memo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Truck, ArrowLeft } from 'lucide-react';
 import FadeIn from '../animations/FadeIn';
+import { PRODUCT_LINKS } from '@/data/products-map';
 
 // ========================================
 // Hero Component - Mobile-First Design
@@ -68,7 +69,7 @@ const Hero: React.FC = () => {
                     <div className="flex flex-col items-center gap-4 sm:gap-6">
                         {/* Primary CTA */}
                         <Link
-                            href="/magazine"
+                            href={`/product/${PRODUCT_LINKS.magazine_issue.id}`}
                             className="w-full sm:w-auto bg-samawah-teal text-white font-bold py-3.5 sm:py-3 px-8 rounded-full hover:bg-samawah-coral hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-xl flex items-center justify-center gap-2 touch-target"
                         >
                             تصفح الإصدارات
@@ -101,4 +102,4 @@ const Hero: React.FC = () => {
     );
 };
 
-export default Hero;
+export default memo(Hero);

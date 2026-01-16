@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { Users, Share2, TrendingUp, CheckCircle, ChevronDown, ChevronUp, Send, Instagram, Twitter, Youtube, Rocket, Sparkles } from 'lucide-react';
+import AmbassadorsGrid from '@/components/features/partners/AmbassadorsGrid';
+import FadeIn from '@/components/animations/FadeIn';
 
 const Partners: React.FC = () => {
 
@@ -168,7 +170,21 @@ const Partners: React.FC = () => {
                 </div>
             </section>
 
-            {/* 5. FAQ Section */}
+            {/* 5. Ambassadors Selection (NEW) */}
+            <section className="py-20 px-4 bg-white/50 border-y border-brand-100">
+                <div className="max-w-7xl mx-auto">
+                    <FadeIn>
+                        <div className="text-center mb-12 md:mb-16">
+                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-samawah-navy mb-4">نخبة من سفراء هُدنة</h2>
+                            <p className="text-gray-500 max-w-2xl mx-auto">نفتخر بالتعاون مع نخبة من المبدعين وصناع المحتوى الذين يشاركوننا رؤيتنا في نشر الوعي والثقافة.</p>
+                        </div>
+                    </FadeIn>
+
+                    <AmbassadorsGrid />
+                </div>
+            </section>
+
+            {/* 6. FAQ Section */}
             <section className="py-20 px-4 max-w-3xl mx-auto">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-serif font-bold text-brand-900">الأسئلة الشائعة</h2>
@@ -190,7 +206,7 @@ const Partners: React.FC = () => {
                 </div>
             </section>
 
-            {/* 6. Registration Form */}
+            {/* 7. Registration Form */}
             <section id="register-form" className="bg-white py-20 border-t border-brand-100">
                 <div className="max-w-2xl mx-auto px-4">
                     <div className="text-center mb-10">

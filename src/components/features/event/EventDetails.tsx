@@ -5,6 +5,7 @@ import { MapPin, Calendar, Clock, Monitor, Users, CheckCircle, Info, FileText, U
 import { Product, SallaProduct } from '@/types/salla';
 import { EVENT_DATA } from '@/data/events';
 import { useCartStore } from '@/store/cartStore';
+import { PRODUCT_LINKS } from '@/data/products-map';
 
 interface EventDetailsProps {
     product: Product | null;
@@ -21,29 +22,17 @@ const EventDetails: React.FC<EventDetailsProps> = ({ product }) => {
     const onlinePrice = Math.round(inPersonPrice * 0.33);
 
     const handleAddToCart = () => {
-        if (!product) return;
         setIsAddingToCart(true);
 
-        const cartProduct: SallaProduct = {
-            id: product.id,
-            name: ticketType === 'in-person'
-                ? `${product.name} - حضور شخصي`
-                : `${product.name} - بث مباشر`,
-            description: product.description,
-            price: {
-                amount: ticketType === 'in-person' ? inPersonPrice : onlinePrice,
-                currency: product.price.currency
-            },
-            main_image: product.main_image,
-            images: product.images,
-            url: product.url,
-        };
+        // Get the appropriate Salla URL based on ticket type
+        const targetUrl = ticketType === 'in-person'
+            ? PRODUCT_LINKS.jalas_ticket_attend.url
+            : PRODUCT_LINKS.jalas_ticket_online.url;
 
-        addItem(cartProduct, 1);
-
+        // Redirect to Salla after a short delay for feedback
         setTimeout(() => {
-            setIsAddingToCart(false);
-        }, 500);
+            window.location.href = targetUrl;
+        }, 300);
     };
 
     return (

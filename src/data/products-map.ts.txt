@@ -1,0 +1,26 @@
+// src/data/products-map.ts
+
+// هذا الملف هو "قاعدة البيانات الصغيرة" لروابط سلة
+// نضع هنا اسم المنتج، والرابط الذي يوجه العميل لإضافته للسلة مباشرة
+
+export const productLinks = {
+  // 1. مجلة هدنة (العدد الورقي)
+  magazine_print: {
+    id: 'magazine_01', 
+    url: 'https://salla.sa/YOUR_STORE/magazine-product-link', // استبدل هذا برابط المنتج الحقيقي من متجرك
+  },
+
+  // 2. تذكرة مجلس جُلاس (اللقاء القادم)
+  jalas_ticket: {
+    id: 'jalas_event',
+    url: 'https://salla.sa/YOUR_STORE/event-ticket-link', // استبدل هذا برابط المنتج الحقيقي
+  },
+
+  // 3. التقرير الإعلامي (منتج رقمي)
+  media_report: {
+    id: 'report_2025',
+    url: 'https://salla.sa/YOUR_STORE/report-link', // استبدل هذا برابط المنتج الحقيقي
+  },
+  
+  // يمكنك إضافة المزيد هنا بنفس الطريقة
+};

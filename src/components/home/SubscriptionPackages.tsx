@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { memo } from 'react';
 import Link from 'next/link';
 import { Check, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import FadeIn from '../animations/FadeIn';
+import { PRODUCT_LINKS } from '@/data/products-map';
 
 // ========================================
 // SubscriptionPackages Component - Pricing Section
@@ -15,12 +16,14 @@ interface PlanFeatureProps {
     highlighted?: boolean;
 }
 
-const PlanFeature: React.FC<PlanFeatureProps> = ({ children, highlighted = false }) => (
+const PlanFeature: React.FC<PlanFeatureProps> = memo(({ children, highlighted = false }) => (
     <li className="flex gap-2 items-center">
         <Check size={16} className={highlighted ? 'text-samawah-peach shrink-0' : 'text-samawah-teal shrink-0'} aria-hidden="true" />
         {children}
     </li>
-);
+));
+
+PlanFeature.displayName = 'PlanFeature';
 
 const SubscriptionPackages: React.FC = () => {
     return (
@@ -77,7 +80,7 @@ const SubscriptionPackages: React.FC = () => {
                             {/* CTA */}
                             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                                 <Link
-                                    href="/magazine"
+                                    href={`/product/${PRODUCT_LINKS.magazine_issue.id}?plan=annual`}
                                     className="block w-full text-center py-3.5 md:py-4 rounded-xl bg-white text-samawah-navy font-bold hover:bg-samawah-coral hover:text-white transition-all shadow-lg touch-target"
                                 >
                                     اشترك الآن
@@ -106,7 +109,7 @@ const SubscriptionPackages: React.FC = () => {
                             {/* CTA */}
                             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                                 <Link
-                                    href="/magazine"
+                                    href={`/product/${PRODUCT_LINKS.magazine_issue.id}?plan=single`}
                                     className="block w-full text-center py-3.5 md:py-3 rounded-xl border-2 border-samawah-teal text-samawah-teal font-bold hover:bg-samawah-teal hover:text-white transition-all touch-target"
                                 >
                                     شراء نسخة
@@ -120,4 +123,5 @@ const SubscriptionPackages: React.FC = () => {
     );
 };
 
-export default SubscriptionPackages;
+export default memo(SubscriptionPackages);
+

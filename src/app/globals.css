@@ -78,6 +78,18 @@
   --color-sand-100: #f5f3ec;
 
   --color-hodna-cyan: #97D3CB;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  --animate-marquee: marquee 30s linear infinite;
 }
 
 /* === Base Styles === */

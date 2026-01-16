@@ -6,17 +6,24 @@ import { ShoppingBag, Sparkles, CheckCircle, Circle, Play, User, Calendar, Quote
 import { Product, SallaProduct } from '@/types/salla';
 import { MAGAZINE_ISSUES, MAGAZINE_SECTIONS, IssueData } from '@/data/magazine';
 import { useCartStore } from '@/store/cartStore';
+import { useSearchParams } from 'next/navigation';
+import { PRODUCT_LINKS } from '@/data/products-map';
 
 interface MagazineDetailsProps {
     product: Product | null;
 }
 
 const MagazineDetails: React.FC<MagazineDetailsProps> = ({ product }) => {
-    const [selectedPlan, setSelectedPlan] = useState<'single' | 'annual'>('annual');
+    const searchParams = useSearchParams();
+    const planFromQuery = searchParams.get('plan');
+
+    const [selectedPlan, setSelectedPlan] = useState<'single' | 'annual'>(
+        planFromQuery === 'single' ? 'single' : 'annual'
+    );
     const [selectedIssue, setSelectedIssue] = useState(1);
     const [isAddingToCart, setIsAddingToCart] = useState(false);
 
-    // Cart store
+    // Cart store (keeping it for other UI interactions if needed, but primary action is now redirect)
     const addItem = useCartStore((state) => state.addItem);
 
     // Combine static data with dynamic product images
@@ -32,36 +39,20 @@ const MagazineDetails: React.FC<MagazineDetailsProps> = ({ product }) => {
 
     const basePrice = product?.price?.amount || 45;
     const plans = {
-        single: { price: basePrice, label: 'نسخة واحدة' },
-        annual: { price: Math.round(basePrice * 4 * 0.85), label: 'الباقة السنوية' },
+        single: { price: basePrice, label: 'نسخة واحدة', url: PRODUCT_LINKS.magazine_issue.url },
+        annual: { price: Math.round(basePrice * 4 * 0.85), label: 'الباقة السنوية', url: PRODUCT_LINKS.magazine_subscription.url },
     };
 
     const handleAddToCart = () => {
-        if (!product) return;
         setIsAddingToCart(true);
 
-        // Create a product object for the cart
-        const cartProduct: SallaProduct = {
-            id: product.id,
-            name: selectedPlan === 'annual'
-                ? `${product.name} - الباقة السنوية`
-                : product.name,
-            description: product.description,
-            price: {
-                amount: selectedPlan === 'annual' ? plans.annual.price : plans.single.price,
-                currency: product.price.currency
-            },
-            main_image: product.main_image,
-            images: product.images,
-            url: product.url,
-        };
+        // Get the appropriate Salla URL based on selection
+        const targetUrl = selectedPlan === 'annual' ? plans.annual.url : plans.single.url;
 
-        // Add to local cart store
-        addItem(cartProduct, selectedPlan === 'annual' ? 1 : 1);
-
+        // Redirect to Salla
         setTimeout(() => {
-            setIsAddingToCart(false);
-        }, 500);
+            window.location.href = targetUrl;
+        }, 300);
     };
 
     return (

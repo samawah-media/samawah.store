@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Mail, Instagram, Twitter } from 'lucide-react';
 import Link from 'next/link';
 
@@ -12,7 +12,7 @@ interface FooterLinkProps {
     highlight?: boolean;
 }
 
-const FooterLink: React.FC<FooterLinkProps> = ({ href, children, highlight = false }) => (
+const FooterLink: React.FC<FooterLinkProps> = memo(({ href, children, highlight = false }) => (
     <li>
         <Link
             href={href}
@@ -22,7 +22,9 @@ const FooterLink: React.FC<FooterLinkProps> = ({ href, children, highlight = fal
             {children}
         </Link>
     </li>
-);
+));
+
+FooterLink.displayName = 'FooterLink';
 
 interface SocialLinkProps {
     href: string;
@@ -30,7 +32,7 @@ interface SocialLinkProps {
     label: string;
 }
 
-const SocialLink: React.FC<SocialLinkProps> = ({ href, icon, label }) => (
+const SocialLink: React.FC<SocialLinkProps> = memo(({ href, icon, label }) => (
     <a
         href={href}
         className="text-gray-400 hover:text-samawah-teal transition-colors p-2 -m-2 touch-target"
@@ -38,7 +40,9 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, icon, label }) => (
     >
         {icon}
     </a>
-);
+));
+
+SocialLink.displayName = 'SocialLink';
 
 const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear();
@@ -71,7 +75,7 @@ const Footer: React.FC = () => {
                             <FooterLink href="/magazine">مجلة هدنة</FooterLink>
                             <FooterLink href="/event">لقاء جُلاس</FooterLink>
                             <FooterLink href="/reports">التقارير الإعلامية</FooterLink>
-                            <FooterLink href="/partners" highlight>برنامج شركاء هُدنة</FooterLink>
+                            <FooterLink href="/join" highlight>انضم لعائلة سماوة</FooterLink>
                             <FooterLink href="/about">من نحن</FooterLink>
                         </ul>
                     </div>
@@ -107,5 +111,6 @@ const Footer: React.FC = () => {
     );
 };
 
-export default Footer;
+export default memo(Footer);
+
 

@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { memo } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Clock } from 'lucide-react';
 import Image from 'next/image';
 import FadeIn from '../animations/FadeIn';
+import { PRODUCT_LINKS } from '@/data/products-map';
 
 // ========================================
 // FeaturedGrid Component - Products Showcase
@@ -37,7 +38,7 @@ const FeaturedGrid: React.FC = () => {
                 {/* Magazine Card - Large */}
                 <FadeIn delay={0.1} className="md:col-span-2 md:row-span-2 h-full" fullWidth>
                     <Link
-                        href="/magazine"
+                        href={`/product/${PRODUCT_LINKS.magazine_issue.id}`}
                         className="group relative h-full w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
                     >
                         <Image
@@ -125,4 +126,5 @@ const FeaturedGrid: React.FC = () => {
     );
 };
 
-export default FeaturedGrid;
+export default memo(FeaturedGrid);
+

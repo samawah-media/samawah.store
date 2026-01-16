@@ -1,0 +1,92 @@
+// src/data/products-map.ts
+
+/**
+ * خريطة روابط المنتجات الفعلية على متجر سلة
+ * تستخدم لربط الأزرار والبطاقات في الموقع بالروابط المباشرة للشراء
+ */
+export const PRODUCT_LINKS = {
+    // --- قسم المجلة (هدنة) ---
+
+    // 1. المجلة (العدد الفردي الحالي)
+    magazine_issue: {
+        id: '548271829',
+        url: 'https://samawah.store/%D9%85%D8%AC%D9%84%D8%A9-%D9%87%D9%8F%D8%AF%D9%86%D8%A9-1-%D9%81%D9%8A-%D8%A7%D9%84%D8%AA%D9%88%D9%82-%D8%A5%D9%84%D9%89-%D8%A7%D9%84%D9%85%D9%83%D8%A7%D9%86%D8%A9-%D9%88%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D8%B1/p548271829'
+    },
+
+    // 2. الاشتراك السنوي للمجلة
+    magazine_subscription: {
+        id: '530230730',
+        url: 'https://samawah.store/annual/p530230730'
+    },
+
+    // --- قسم مجلس جُلاس (اللقاءات) ---
+
+    // 3. تذكرة الحضور (حضوري)
+    jalas_ticket_attend: {
+        id: 'jalas_offline',
+        url: 'https://salla.sa/YOUR_STORE/ticket-attend-link', // سيتم تحديثه لاحقاً
+    },
+
+    // 4. تذكرة البث المباشر (أونلاين)
+    jalas_ticket_online: {
+        id: 'jalas_online',
+        url: 'https://salla.sa/YOUR_STORE/ticket-online-link', // سيتم تحديثه لاحقاً
+    },
+
+    // --- منتجات أخرى (التقرير مثلاً) ---
+    media_report: {
+        id: 'report_2025',
+        url: 'https://salla.sa/YOUR_STORE/report-link', // سيتم تحديثه لاحقاً
+    },
+};
+
+/**
+ * بيانات اللقاء القادم لمجلس جُلاس
+ * لتسهيل التحديث الدوري للفعاليات
+ */
+export const UPCOMING_EVENT = {
+    id: 'jalas_25',
+    title: 'مستقبل المحتوى الكوميدي في الخليج',
+    date: 'الخميس، 20 فبراير 2025',
+    time: '08:00 مساءً',
+    location: 'مقر المجلس، جدة',
+    image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=2069&auto=format&fit=crop',
+    ticket_attend: 'https://samawah.store/p/ticket-attend-link', // رابط سلة الفعلي
+    ticket_online: 'https://samawah.store/p/ticket-online-link', // رابط سلة الفعلي
+};
+
+/**
+ * قائمة ضيوف المجلس السابقين
+ */
+export const PAST_GUESTS = [
+    {
+        name: 'د. خالد اليحيا',
+        title: 'صناعة المحتوى المعرفي',
+        image: 'https://picsum.photos/id/1011/200/200',
+    },
+    {
+        name: 'أحمد الشقيري',
+        title: 'الإحسان في العمل الإعلامي',
+        image: 'https://picsum.photos/id/1012/200/200',
+    },
+    {
+        name: 'مالك نجر',
+        title: 'الرسوم المتحركة والقصة',
+        image: 'https://picsum.photos/id/1013/200/200',
+    },
+    {
+        name: 'ياسر حارب',
+        title: 'الدراما والتأثير المجتمعي',
+        image: 'https://picsum.photos/id/1014/200/200',
+    },
+    {
+        name: 'عمر حسين',
+        title: 'تطور الكوميديا الرقمية',
+        image: 'https://picsum.photos/id/1015/200/200',
+    },
+    {
+        name: 'سارة الحماد',
+        title: 'إدارة المنصات الإعلامية',
+        image: 'https://picsum.photos/id/1016/200/200',
+    },
+];
