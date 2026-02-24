@@ -12,6 +12,7 @@ export interface IssueData {
     cover: string;
     videoPoster: string;
     date: string;
+    available: boolean; // هل العدد متاح للشراء؟
     editorQuote: {
         text: string;
         author: string;
@@ -26,6 +27,7 @@ export const MAGAZINE_ISSUES: Record<number, IssueData> = {
         cover: "https://picsum.photos/id/24/800/1000",
         videoPoster: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop",
         date: "يناير 2025",
+        available: true,
         editorQuote: {
             text: "الراقص الحقيقي لا ينتظر التصفيق، هو يرقص لأن الموسيقى في داخله لا تتوقف.",
             author: "أ. محمد أحمد بارحمة"
@@ -45,6 +47,7 @@ export const MAGAZINE_ISSUES: Record<number, IssueData> = {
         cover: "https://picsum.photos/id/1016/800/1000",
         videoPoster: "https://images.unsplash.com/photo-1496167117681-944f702be1f4?q=80&w=1000&auto=format&fit=crop",
         date: "أبريل 2025",
+        available: true,
         editorQuote: {
             text: "الكمال الحقيقي هو رحلة مستمرة تبدأ من انسجامنا مع ذواتنا، وصولا إلى تحقيق الأهداف الأصيلة التي تعبر عن جوهرنا الداخلي، لا عن صورتنا الخارجية فقط. مقالة «أو أمضي حقبا».",
             author: "أ. محمد أحمد بارحمة"
@@ -60,36 +63,30 @@ export const MAGAZINE_ISSUES: Record<number, IssueData> = {
         ]
     },
     3: {
-        title: "العدد الثالث: العودة للجذور",
+        title: "قريباً",
         cover: "https://picsum.photos/id/1050/800/1000",
         videoPoster: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1000&auto=format&fit=crop",
-        date: "يوليو 2025",
+        date: "قريباً",
+        available: false,
         editorQuote: {
-            text: "لا شجر ينمو بلا جذور، ولا إنسان يكبر بلا ذاكرة.",
+            text: "ترقبوا العدد الثالث من مجلة هُدنة.. قريباً بإذن الله.",
             author: "أ. محمد أحمد بارحمة"
         },
-        highlights: [
-            "نوستالجيا البيوت الطينية: حنين عابر أم هوية مفقودة؟",
-        ],
-        articles: [
-            { title: "رائحة الطين", author: "د. غازي القصيبي (أرشيف)", quote: "استعادة لنصوص لم تنشر." },
-        ]
+        highlights: [],
+        articles: []
     },
     4: {
-        title: "العدد الرابع: الإنسان والآلة",
+        title: "قريباً",
         cover: "https://picsum.photos/id/1070/800/1000",
         videoPoster: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1000&auto=format&fit=crop",
-        date: "أكتوبر 2025",
+        date: "قريباً",
+        available: false,
         editorQuote: {
-            text: "نحن لا نخاف أن تصبح الآلة ذكية، نخاف أن يصبح الإنسان آلة.",
+            text: "ترقبوا العدد الرابع من مجلة هُدنة.. قريباً بإذن الله.",
             author: "أ. محمد أحمد بارحمة"
         },
-        highlights: [
-            "هل سيسرق الذكاء الاصطناعي أرواحنا قبل وظائفنا؟",
-        ],
-        articles: [
-            { title: "هل يحلم الذكاء الاصطناعي؟", author: "د. لمياء العبدالكريم", quote: "نخاف أن يصبح الإنسان آلة." },
-        ]
+        highlights: [],
+        articles: []
     }
 };
 
