@@ -45,14 +45,17 @@ export const PRODUCT_LINKS = {
  * لتسهيل التحديث الدوري للفعاليات
  */
 export const UPCOMING_EVENT = {
-    id: 'jalas_25',
-    title: 'لقاء جُلاس القادم',
-    date: 'تم الإعلان قريباً',
-    time: 'سيتم التحديد',
-    location: 'مقر المجلس، جدة',
-    image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=2069&auto=format&fit=crop',
+    id: 'jalas_26',
+    title: 'لقاء جُلاس السادس والعشرون: اللغة.. الخصيصة التي تميّزنا',
+    date: 'الخميس 12 فبراير',
+    time: '7:00 - 9:00 مساءً',
+    location: 'مركز نسما، جدة',
+    image: '/images/jalas-event.jpeg',
+    price_attend: 15,  // ريال سعودي
+    price_online: 30,  // ريال سعودي
     ticket_attend: 'https://samawah.store/p/ticket-attend-link', // رابط سلة الفعلي
     ticket_online: 'https://samawah.store/p/ticket-online-link', // رابط سلة الفعلي
+    seasonStatus: 'ended' as const, // انتهى الموسم الثالث
 };
 
 /**

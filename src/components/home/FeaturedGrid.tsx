@@ -115,34 +115,27 @@ const FeaturedGrid: React.FC = () => {
                         href="/event"
                         className="group relative h-full min-h-[200px] rounded-2xl md:rounded-3xl overflow-hidden bg-samawah-navy shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
                     >
-                        {/* Coming Soon Badge */}
+                        {/* Season Status Badge */}
                         <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white font-medium flex items-center gap-1 z-10">
                             <Clock size={12} aria-hidden="true" />
-                            قريباً
+                            في انتظار الموسم الرابع
                         </div>
 
                         {/* Content */}
                         <div className="p-5 md:p-8 flex-1 flex flex-col justify-center items-start text-white z-10">
-                            <h3 className="text-xl md:text-2xl font-serif font-bold mb-2">لقاء جُلاس القادم</h3>
-                            <p className="text-gray-300 text-sm mb-4 md:mb-6">صالون ثقافي ومعرفي يجمع النخبة.</p>
+                            <h3 className="text-xl md:text-2xl font-serif font-bold mb-2">مجلس جُلاس</h3>
+                            <p className="text-gray-300 text-sm mb-4 md:mb-6">صالون ثقافي ومعرفي يجمع النخبة. ترقبوا الموسم الرابع بإذن الله.</p>
 
-                            {/* Countdown */}
-                            <div className="flex gap-2 mb-2 md:mb-4">
-                                <div className="bg-white/10 p-2 rounded text-center min-w-[45px] md:min-w-[50px]">
-                                    <span className="block font-bold text-base md:text-lg">04</span>
-                                    <span className="text-[10px]">أيام</span>
-                                </div>
-                                <div className="bg-white/10 p-2 rounded text-center min-w-[45px] md:min-w-[50px]">
-                                    <span className="block font-bold text-base md:text-lg">12</span>
-                                    <span className="text-[10px]">ساعة</span>
-                                </div>
+                            {/* Season Info */}
+                            <div className="bg-white/10 px-4 py-2 rounded-lg text-sm text-white/80">
+                                ✨ 26 لقاء في 3 مواسم
                             </div>
                         </div>
 
                         {/* Background Image */}
                         <Image
-                            src="https://picsum.photos/id/452/400/300"
-                            alt=""
+                            src="/images/jalas-event.jpeg"
+                            alt="مجلس جُلاس"
                             fill
                             aria-hidden="true"
                             className="object-cover opacity-40 group-hover:opacity-30 transition-opacity"
@@ -203,8 +196,8 @@ const FeaturedGrid: React.FC = () => {
                                                 setActiveIndex(idx);
                                             }}
                                             className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeIndex
-                                                    ? 'w-5 bg-white'
-                                                    : 'w-1.5 bg-white/40 hover:bg-white/60'
+                                                ? 'w-5 bg-white'
+                                                : 'w-1.5 bg-white/40 hover:bg-white/60'
                                                 }`}
                                             aria-label={`عرض التقرير ${idx + 1}`}
                                         />
