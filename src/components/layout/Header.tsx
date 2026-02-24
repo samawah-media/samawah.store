@@ -51,8 +51,10 @@ const Header: React.FC = () => {
 
     // Close menu on route change
     useEffect(() => {
-        setIsMenuOpen(false);
-    }, [pathname]);
+        if (isMenuOpen) {
+            setIsMenuOpen(false);
+        }
+    }, [pathname, isMenuOpen]);
 
     // Prevent body scroll when menu is open
     useEffect(() => {

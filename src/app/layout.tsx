@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 import { samawahFont } from "@/lib/fonts";
 
 // ========================================
@@ -124,6 +125,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
         </main>
 
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

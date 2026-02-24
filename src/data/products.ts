@@ -6,8 +6,8 @@ import { SallaProduct } from '@/types/salla';
 export const FALLBACK_PRODUCTS: Record<string, SallaProduct> = {
     '548271829': {
         id: '548271829',
-        name: 'مجلة هُدنة - العدد الأول',
-        description: 'مجلة ثقافية فكرية تهتم بالشأن العربي',
+        name: 'مجلة هُدنة: في قلق المكانة والسعي للتقدير',
+        description: 'الراقص الحقيقي لا ينتظر التصفيق، هو يرقص لأن الموسيقى في داخله لا تتوقف.',
         price: { amount: 75, currency: 'SAR' },
         main_image: '/images/hodna-product.JPG',
         images: [],

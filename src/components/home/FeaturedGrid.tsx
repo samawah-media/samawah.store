@@ -1,6 +1,6 @@
 'use client';
 
-import React, { memo } from 'react';
+import React, { memo, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Clock } from 'lucide-react';
 import Image from 'next/image';
@@ -8,10 +8,55 @@ import FadeIn from '../animations/FadeIn';
 import { PRODUCT_LINKS } from '@/data/products-map';
 
 // ========================================
+// Report Covers Data
+// ========================================
+const reportCovers = [
+    {
+        id: 1,
+        title: 'تقرير الأصول الإعلامية 2025',
+        image: '/images/media-assets-report.png',
+    },
+    {
+        id: 2,
+        title: 'تحليل السوق الإعلامي',
+        image: 'https://picsum.photos/id/24/400/560',
+    },
+    {
+        id: 3,
+        title: 'دليل الاستراتيجية الرقمية',
+        image: 'https://picsum.photos/id/367/400/560',
+    },
+    {
+        id: 4,
+        title: 'مستقبل صناعة المحتوى',
+        image: 'https://picsum.photos/id/180/400/560',
+    },
+    {
+        id: 5,
+        title: 'أداء المنصات الرقمية',
+        image: 'https://picsum.photos/id/201/400/560',
+    },
+];
+
+// ========================================
 // FeaturedGrid Component - Products Showcase
 // ========================================
 
 const FeaturedGrid: React.FC = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+
+    const goToNext = useCallback(() => {
+        setActiveIndex((prev) => (prev + 1) % reportCovers.length);
+    }, []);
+
+    // Auto-rotate every 3.5 seconds
+    useEffect(() => {
+        if (isPaused) return;
+        const interval = setInterval(goToNext, 3500);
+        return () => clearInterval(interval);
+    }, [isPaused, goToNext]);
+
     return (
         <section
             className="py-12 md:py-20 px-4 max-w-7xl mx-auto"
@@ -24,10 +69,10 @@ const FeaturedGrid: React.FC = () => {
                         id="featured-heading"
                         className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-samawah-navy mb-3 md:mb-4"
                     >
-                        إصدارات وفعاليات مختارة
+                        إصدارات وفعاليات مُختارة
                     </h2>
                     <p className="text-samawah-grey/70 max-w-2xl mx-auto text-sm md:text-base">
-                        نجمع لك بين أصالة الورق وتفاعلية اللقاءات الحية في مكان واحد.
+                        من أصالة الورق إلى اللقاءات الحيّة، مسار واحد للمعرفة التجربة
                     </p>
                 </div>
             </FadeIn>
@@ -51,10 +96,10 @@ const FeaturedGrid: React.FC = () => {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5 md:p-8 flex flex-col justify-end">
                             <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-white mb-2">
-                                مجلة هدنة: العدد الأول 2025
+                                مجلة هدنة: في قلق المكانة والسعي للتقدير
                             </h3>
                             <p className="text-gray-200 mb-3 md:mb-4 line-clamp-2 text-sm md:text-base">
-                                &quot;ممر هادئ إلى روحك&quot;. مقالات في التوق إلى المكانة والتقدير، الراقصون في العتمة، وموسم الهجرة إلى الرياض.
+                                الراقص الحقيقي لا ينتظر التصفيق، هو يرقص لأن الموسيقى في داخله لا تتوقف.
                             </p>
                             <span className="inline-flex items-center text-white font-bold group-hover:gap-2 transition-all text-sm md:text-base">
                                 اكتشف العدد
@@ -106,18 +151,69 @@ const FeaturedGrid: React.FC = () => {
                     </Link>
                 </FadeIn>
 
-                {/* Reports Card */}
+                {/* Reports Carousel Card */}
                 <FadeIn delay={0.3}>
                     <Link
                         href="/reports"
-                        className="group relative h-full min-h-[140px] rounded-2xl md:rounded-3xl overflow-hidden bg-samawah-beige border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 p-5 md:p-6 flex flex-col justify-between"
+                        className="group relative h-full min-h-[180px] rounded-2xl md:rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 block"
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
                     >
-                        <div>
-                            <h3 className="text-lg md:text-xl font-bold text-samawah-navy mb-2">تقارير إعلامية</h3>
-                            <p className="text-samawah-grey/70 text-sm">تحليلات معمقة لواقع السوق الإعلامي.</p>
-                        </div>
-                        <div className="self-end bg-samawah-mint p-2 rounded-full group-hover:bg-samawah-navy group-hover:text-white transition-colors">
-                            <ArrowLeft size={20} aria-hidden="true" />
+                        {/* Report Cover Images */}
+                        {reportCovers.map((cover, idx) => (
+                            <div
+                                key={cover.id}
+                                className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+                                style={{ opacity: idx === activeIndex ? 1 : 0 }}
+                            >
+                                <Image
+                                    src={cover.image}
+                                    alt={cover.title}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                    priority={idx === 0}
+                                />
+                            </div>
+                        ))}
+
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-samawah-navy/90 via-samawah-navy/30 to-transparent z-10" />
+
+                        {/* Content Overlay */}
+                        <div className="absolute inset-0 z-20 p-4 md:p-5 flex flex-col justify-end">
+                            {/* Title */}
+                            <h3 className="text-base md:text-lg font-bold text-white mb-1 drop-shadow-lg">
+                                تقارير إعلامية
+                            </h3>
+                            {/* Current cover title */}
+                            <p className="text-white/70 text-xs mb-3 drop-shadow transition-all duration-500 line-clamp-1">
+                                {reportCovers[activeIndex].title}
+                            </p>
+
+                            {/* Navigation Dots + Arrow */}
+                            <div className="flex items-center justify-between">
+                                <div className="flex gap-1.5">
+                                    {reportCovers.map((_, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                setActiveIndex(idx);
+                                            }}
+                                            className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeIndex
+                                                    ? 'w-5 bg-white'
+                                                    : 'w-1.5 bg-white/40 hover:bg-white/60'
+                                                }`}
+                                            aria-label={`عرض التقرير ${idx + 1}`}
+                                        />
+                                    ))}
+                                </div>
+                                <div className="bg-white/20 backdrop-blur-sm p-1.5 rounded-full group-hover:bg-white/30 transition-colors">
+                                    <ArrowLeft size={16} className="text-white" aria-hidden="true" />
+                                </div>
+                            </div>
                         </div>
                     </Link>
                 </FadeIn>

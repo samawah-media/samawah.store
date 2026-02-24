@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
                 {/* Badge */}
                 <FadeIn delay={0.2} direction="down">
                     <span className="inline-block bg-samawah-mint text-samawah-navy font-bold px-4 py-1.5 rounded-full text-xs sm:text-sm mb-4 sm:mb-6">
-                        إصدارات جديدة
+                        سماوة..سمو الفكرة وسعة التأثير
                     </span>
                 </FadeIn>
 
@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
                     <h1
                         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4 sm:mb-6 max-w-2xl mx-auto leading-tight"
                     >
-                        استعد توازنك مع كل صفحة تقرأها
+                        متجر سماوة.. مساحة ثقافية لإثراء الفكر والمعرفة
                     </h1>
                 </FadeIn>
 
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
                     <p
                         className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed"
                     >
-                        في متجر هُدنة، ننتقي لك بعناية المجلات والمحتوى الذي يلامس الروح ويرتقي بالفكر.
+                        نضع بين يديك إصدارات ومنتجات ترتقي بالفكر وتُثري التجربة الثقافية.
                     </p>
                 </FadeIn>
 
@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
                             href={`/product/${PRODUCT_LINKS.magazine_issue.id}`}
                             className="w-full sm:w-auto bg-samawah-teal text-white font-bold py-3.5 sm:py-3 px-8 rounded-full hover:bg-samawah-coral hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-xl flex items-center justify-center gap-2 touch-target"
                         >
-                            تصفح الإصدارات
+                            تصفّح الإصدارات
                             <ArrowLeft size={20} aria-hidden="true" />
                         </Link>
 
@@ -82,7 +82,7 @@ const Hero: React.FC = () => {
                             role="note"
                         >
                             <Truck size={18} className="text-samawah-mint shrink-0" aria-hidden="true" />
-                            <span>يصلك 4 أعداد لباب بيتك</span>
+                            <span>شحن مجانيّ لباب بيتك</span>
                         </div>
                     </div>
                 </FadeIn>

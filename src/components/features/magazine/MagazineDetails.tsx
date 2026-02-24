@@ -37,7 +37,7 @@ const MagazineDetails: React.FC<MagazineDetailsProps> = ({ product }) => {
 
     const currentIssueData = issuesData[selectedIssue];
 
-    const basePrice = product?.price?.amount || 45;
+    const basePrice = product?.price?.amount || 75;
     const plans = {
         single: { price: basePrice, label: 'نسخة واحدة', url: PRODUCT_LINKS.magazine_issue.url },
         annual: { price: Math.round(basePrice * 4 * 0.85), label: 'الباقة السنوية', url: PRODUCT_LINKS.magazine_subscription.url },
@@ -114,7 +114,7 @@ const MagazineDetails: React.FC<MagazineDetailsProps> = ({ product }) => {
                         <p className="text-xl text-samawah-teal font-serif mb-6">&quot;{currentIssueData.title}&quot;</p>
 
                         <p className="text-gray-600 mb-8 leading-relaxed">
-                            مجلة ثقافية مطبوعة، تأتيك بجودة فاخرة وملمس ورقي يعيد لك متعة القراءة المتأنية.
+                            هُدنة..مجلة ثقافية سعودية مطبوعة، تصلك بجودة فاخرة وملمس ورقي يعيد لك متعة القراءة الحيَّة.
                         </p>
 
                         {/* Plan Selector */}

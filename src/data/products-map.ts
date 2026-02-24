@@ -46,9 +46,9 @@ export const PRODUCT_LINKS = {
  */
 export const UPCOMING_EVENT = {
     id: 'jalas_25',
-    title: 'مستقبل المحتوى الكوميدي في الخليج',
-    date: 'الخميس، 20 فبراير 2025',
-    time: '08:00 مساءً',
+    title: 'لقاء جُلاس القادم',
+    date: 'تم الإعلان قريباً',
+    time: 'سيتم التحديد',
     location: 'مقر المجلس، جدة',
     image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=2069&auto=format&fit=crop',
     ticket_attend: 'https://samawah.store/p/ticket-attend-link', // رابط سلة الفعلي
@@ -60,33 +60,38 @@ export const UPCOMING_EVENT = {
  */
 export const PAST_GUESTS = [
     {
-        name: 'د. خالد اليحيا',
-        title: 'صناعة المحتوى المعرفي',
+        name: 'د. خالد حمد الجابر',
+        title: 'طبيب وكاتب نفسي',
         image: 'https://picsum.photos/id/1011/200/200',
     },
     {
-        name: 'أحمد الشقيري',
-        title: 'الإحسان في العمل الإعلامي',
+        name: 'رائد بن خليل العيد',
+        title: 'كاتب ومبادر ثقافي',
         image: 'https://picsum.photos/id/1012/200/200',
     },
     {
-        name: 'مالك نجر',
-        title: 'الرسوم المتحركة والقصة',
+        name: 'موفق السلمي',
+        title: 'شاعر ومؤلف',
         image: 'https://picsum.photos/id/1013/200/200',
     },
     {
-        name: 'ياسر حارب',
-        title: 'الدراما والتأثير المجتمعي',
+        name: 'إبراهيم سرحان',
+        title: 'رحّالة ومصور فوتوغرافي',
         image: 'https://picsum.photos/id/1014/200/200',
     },
     {
-        name: 'عمر حسين',
-        title: 'تطور الكوميديا الرقمية',
+        name: 'نواف البيضاني',
+        title: 'باحث ومهتم باللغة',
         image: 'https://picsum.photos/id/1015/200/200',
     },
     {
-        name: 'سارة الحماد',
-        title: 'إدارة المنصات الإعلامية',
+        name: 'حسين محمد بافقيه',
+        title: 'باحث وأديب',
         image: 'https://picsum.photos/id/1016/200/200',
+    },
+    {
+        name: 'أحمد قنديل',
+        title: 'شاعر جدة',
+        image: 'https://picsum.photos/id/1017/200/200',
     },
 ];

@@ -39,7 +39,7 @@ const SubscriptionPackages: React.FC = () => {
                             id="packages-heading"
                             className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-samawah-navy mb-3 md:mb-4"
                         >
-                            باقات اشتراك مجلة هدنة
+                            باقات اشتراك هدنة
                         </h2>
                         <p className="text-samawah-grey/80 max-w-2xl mx-auto text-sm md:text-base">
                             استثمر في وعيك، واختر الباقة التي تناسبك لتصلك المعرفة حتى باب منزلك.
@@ -59,22 +59,22 @@ const SubscriptionPackages: React.FC = () => {
                                 الأكثر توفيراً
                             </div>
 
-                            <h3 className="text-lg md:text-xl font-bold text-white mb-2 mt-2 md:mt-0">الباقة السنوية</h3>
-                            <p className="text-gray-300 text-sm mb-4 md:mb-6">راحة البال طوال العام</p>
+                            <h3 className="text-lg md:text-xl font-bold text-white mb-2 mt-2 md:mt-0">١-الباقة السنوية</h3>
+                            <p className="text-gray-300 text-sm mb-4 md:mb-6">رفقة قرائيّة تمتد لعام كامل</p>
 
                             {/* Price */}
                             <div className="flex items-end gap-2 mb-4 md:mb-6">
                                 <div className="text-3xl md:text-4xl font-bold text-white">
-                                    205 <span className="text-sm md:text-base font-normal text-gray-300">ر.س</span>
+                                    255 <span className="text-sm md:text-base font-normal text-gray-300">ر.س</span>
                                 </div>
-                                <div className="text-base md:text-lg text-samawah-mint line-through mb-1">222 ر.س</div>
+                                <div className="text-base md:text-lg text-samawah-mint line-through mb-1">300 ر.س</div>
                             </div>
 
                             {/* Features */}
                             <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8 text-sm text-gray-100 flex-grow">
-                                <PlanFeature highlighted><strong>4 أعداد</strong> (تصلك ربع سنوياً)</PlanFeature>
-                                <PlanFeature highlighted><strong>شحن مجاني</strong> لباب بيتك</PlanFeature>
-                                <PlanFeature highlighted>ضمان ثبات السعر</PlanFeature>
+                                <PlanFeature highlighted>٤ أعداد تصلك في كلّ ربع سنوي.</PlanFeature>
+                                <PlanFeature highlighted>شحن مجانيّ حتى باب بيتك.</PlanFeature>
+                                <PlanFeature highlighted>سعر ثابت طوال العام.</PlanFeature>
                             </ul>
 
                             {/* CTA */}
@@ -92,12 +92,12 @@ const SubscriptionPackages: React.FC = () => {
                     {/* Single Issue */}
                     <FadeIn delay={0.4} direction="up" className="h-full">
                         <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-200 shadow-sm hover:shadow-lg transition-all h-full flex flex-col order-last md:order-first">
-                            <h3 className="text-lg md:text-xl font-bold text-samawah-navy mb-2">العدد الفردي</h3>
-                            <p className="text-gray-500 text-sm mb-4 md:mb-6">للتجربة والقراءة الهادئة</p>
+                            <h3 className="text-lg md:text-xl font-bold text-samawah-navy mb-2">٢-العدد الفردي</h3>
+                            <p className="text-gray-500 text-sm mb-4 md:mb-6">مدخلك إلى عوالم الهُدنة</p>
 
                             {/* Price */}
                             <div className="text-2xl md:text-3xl font-bold text-samawah-grey mb-4 md:mb-6">
-                                45 <span className="text-sm md:text-base font-normal text-gray-500">ر.س</span>
+                                75 <span className="text-sm md:text-base font-normal text-gray-500">ر.س</span>
                             </div>
 
                             {/* Features */}

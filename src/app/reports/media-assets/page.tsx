@@ -56,7 +56,7 @@ const MediaAssetsReport: React.FC = () => {
                                 أم <span className="text-samawah-peach">مصروف</span> يحترق؟
                             </h1>
                             <p className="text-gray-300 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl ml-auto">
-                                أول تقرير عملي ينتقل بك من عقلية "إدارة الحملات" إلى "إدارة الأصول". اكتشف كيف تبني منظمتك محفظة أصول إعلامية تدوم وتنمو.
+                                أول تقرير استراتيجي ينقلك من مطاردة الأرقام اللحظية إلى بناء إدارة إعلامية واعية. بدل الإنفاق على حملات عابرة، ابدأ تأسيس أصول إعلامية مستدامة تبقى معك لسنوات.
                             </p>
 
                             <div className="flex flex-col sm:flex-row-reverse gap-4">

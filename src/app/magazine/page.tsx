@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { ShoppingBag, Star, Check, BookOpen, Sparkles, CheckCircle, Circle, Play, User, ChevronLeft, Calendar, Quote, Heart, Sun, Globe, Home } from 'lucide-react';
 import Link from 'next/link';
-import { IssueData, IssueArticle } from '@/data/magazine';
+import { IssueData, IssueArticle, MAGAZINE_ISSUES, MAGAZINE_SECTIONS } from '@/data/magazine';
 import { useCartStore } from '@/store/cartStore';
 
 const MagazineProduct: React.FC = () => {
@@ -14,140 +14,7 @@ const MagazineProduct: React.FC = () => {
     const [isAdded, setIsAdded] = useState(false);
     const addItem = useCartStore((state) => state.addItem);
 
-    // بيانات الأعداد (4 أعداد) - المحتوى المتغير
-    const issuesData: Record<number, IssueData> = {
-        1: {
-            title: "العدد الأول: العزلة والانتماء",
-            cover: "https://picsum.photos/id/24/800/1000",
-            videoPoster: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop",
-            date: "يناير 2025",
-            editorQuote: {
-                text: "الراقص الحقيقي لا ينتظر التصفيق، هو يرقص لأن الموسيقى في داخله لا تتوقف. في هذا العدد نبحث عن ذلك الإيقاع الداخلي وسط ضجيج التوقعات.",
-                author: "أ. محمد أحمد بارحمة"
-            },
-            highlights: [
-                "رحلة في عمق النفس البشرية: بين الرغبة في الانعزال والحاجة للانتماء.",
-                "تحليل ظاهرة 'الهجرة للرياض' من منظور اجتماعي ونفسي.",
-                "كيف تحولت 'المكانة' إلى سلعة نشتريها بدلاً من قيمة نكتسبها؟"
-            ],
-            articles: [
-                { title: "الراقصون في العتمة", author: "د. محمد أحمد بارحمة", quote: "كيف تجد الرضا في العمل لا في تقدير الآخرين للعمل؟" },
-                { title: "موسم الهجرة للرياض", author: "عبدالله المغلوث", quote: "المدن مثل البشر، لها جاذبية وقسوة. والرياض اليوم ورشة عمل مفتوحة." },
-                { title: "هبة الامتيازات", author: "سارة العلي", quote: "المشقة ليست في الطريق، بل في وهم الوصول." },
-                { title: "السربون", author: "ياسر حارب", quote: "في أروقة الجامعات العتيقة، نعيد تشكيل الانتماءات الأصيلة." },
-            ]
-        },
-        2: {
-            title: "العدد الثاني: فخ السرعة",
-            cover: "https://picsum.photos/id/1016/800/1000",
-            videoPoster: "https://images.unsplash.com/photo-1496167117681-944f702be1f4?q=80&w=1000&auto=format&fit=crop",
-            date: "أبريل 2025",
-            editorQuote: {
-                text: "نركض لنسبق الزمن، لكننا ننسى أن الزمن لا يسابق أحدًا. هذا العدد محاولة لشد المكابح.",
-                author: "أ. محمد أحمد بارحمة"
-            },
-            highlights: [
-                "لماذا نشعر دائماً أننا متأخرون؟",
-                "ثقافة 'الترند' وكيف تسرق منا لحظة الاستمتاع بالحاضر.",
-                "قصص لأشخاص اختاروا المسار البطيء ونجحوا."
-            ],
-            articles: [
-                { title: "سباق السلاحف", author: "أحمد الشقيري", quote: "الفوز أحياناً يكون في القدرة على التوقف والمشي ببطء متعمد." },
-                { title: "الترند القاتل", author: "خالد الباتلي", quote: "حين يصبح الرأي العام موجة تركبها لتبقى موجوداً، تفقد صوتك الحقيقي." },
-                { title: "قهوة باردة", author: "هيفاء السيد", quote: "عن تلك اللحظات التي نؤجل فيها الحياة." },
-            ]
-        },
-        3: {
-            title: "العدد الثالث: العودة للجذور",
-            cover: "https://picsum.photos/id/1050/800/1000",
-            videoPoster: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1000&auto=format&fit=crop",
-            date: "يوليو 2025",
-            editorQuote: {
-                text: "لا شجر ينمو بلا جذور، ولا إنسان يكبر بلا ذاكرة. نعود للوراء قليلاً لنقفز للأمام بقوة.",
-                author: "أ. محمد أحمد بارحمة"
-            },
-            highlights: [
-                "نوستالجيا البيوت الطينية: حنين عابر أم هوية مفقودة؟",
-                "نصوص لم تنشر من قبل للأديب غازي القصيبي.",
-                "كيف نعيد تعريف الأصالة في عصر العولمة؟"
-            ],
-            articles: [
-                { title: "رائحة الطين", author: "د. غازي القصيبي (أرشيف)", quote: "استعادة لنصوص لم تنشر عن علاقة الإنسان بالأرض." },
-                { title: "بيوت الطين", author: "مشعل السديري", quote: "لماذا نشعر بالحنين لمباني لم نسكنها؟" },
-            ]
-        },
-        4: {
-            title: "العدد الرابع: الإنسان والآلة",
-            cover: "https://picsum.photos/id/1070/800/1000",
-            videoPoster: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1000&auto=format&fit=crop",
-            date: "أكتوبر 2025",
-            editorQuote: {
-                text: "نحن لا نخاف أن تصبح الآلة ذكية، نخاف أن يصبح الإنسان آلة. هذا العدد هو صرخة إنسانية.",
-                author: "أ. محمد أحمد بارحمة"
-            },
-            highlights: [
-                "هل سيسرق الذكاء الاصطناعي أرواحنا قبل وظائفنا؟",
-                "الفن البشري في مواجهة الفن الخوارزمي.",
-                "مستقبل العلاقات الإنسانية في عالم رقمي."
-            ],
-            articles: [
-                { title: "هل يحلم الذكاء الاصطناعي؟", author: "د. لمياء العبدالكريم", quote: "نخاف أن يصبح الإنسان آلة." },
-                { title: "نهاية الوظيفة", author: "مازن الضراب", quote: "العمل ليس مجرد راتب، هو جزء من تعريف الذات." },
-            ]
-        }
-    };
-
-    const currentIssueData = issuesData[selectedIssue];
-
-    // تعريف أبواب المجلة
-    const magazineSections = [
-        {
-            title: "باب السرب",
-            icon: <Home size={24} />,
-            image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop",
-            desc: "عن السكينة النفسية، الانتماء، العائلة، والملاذ الآمن الذي نأوي إليه."
-        },
-        {
-            title: "باب العافية",
-            icon: <Heart size={24} />,
-            image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop",
-            desc: "صحة الجسد والروح، التشافي، والتوازن الذي يجعل للحياة طعماً."
-        },
-        {
-            title: "باب القوت",
-            icon: <Sun size={24} />,
-            image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=800&auto=format&fit=crop",
-            desc: "اقتصاديات الحياة، العمل، المال، وكل ما يقيم صلب أيامنا ومستقبلنا."
-        },
-        {
-            title: "باب الحيازة",
-            icon: <Globe size={24} />,
-            image: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=800&auto=format&fit=crop",
-            desc: "جماليات الدنيا، الفنون، المعرفة، وكل ما يثري ذائقة الإنسان ويوسع مداركه."
-        }
-    ];
-
-    // تعريف بيانات الباقات
-    const plans = {
-        single: {
-            id: 'single',
-            title: 'نسخة واحدة',
-            price: 45,
-            originalPrice: 45,
-            features: ['العدد المختار فقط', 'بدون شحن مجاني'],
-            label: ''
-        },
-        annual: {
-            id: 'annual',
-            title: 'الباقة السنوية (4 أعداد)',
-            price: 205,
-            originalPrice: 222,
-            features: ['شحن مجاني', 'خصم خاص', 'ضمان ثبات السعر'],
-            label: 'خيار القراء المفضل'
-        }
-    };
-
-    const currentPlan = plans[selectedPlan];
+    const currentIssueData = MAGAZINE_ISSUES[selectedIssue];
 
     const handleAddToCart = () => {
         const magazineProduct = {
@@ -156,7 +23,7 @@ const MagazineProduct: React.FC = () => {
                 ? 'مجلة هُدنة - الباقة السنوية (4 أعداد)'
                 : `مجلة هُدنة - ${currentIssueData.title}`,
             description: 'مجلة ثقافية فكرية تهتم بالشأن العربي',
-            price: { amount: selectedPlan === 'annual' ? 205 : 45, currency: 'SAR' },
+            price: { amount: selectedPlan === 'annual' ? 255 : 75, currency: 'SAR' },
             main_image: '/images/hodna-product.JPG',
             images: [],
             url: '#'
@@ -231,7 +98,7 @@ const MagazineProduct: React.FC = () => {
 
                         {/* Sneak Peek Quote (General) */}
                         <p className="text-gray-600 mb-8 leading-relaxed">
-                            مجلة ثقافية مطبوعة، تأتيك بجودة فاخرة وملمس ورقي يعيد لك متعة القراءة المتأنية. في هذا العدد، نحاول أن نبطئ الزمن قليلاً لنفهم الحياة بعمق أكبر.
+                            هُدنة..مجلة ثقافية سعودية مطبوعة، تصلك بجودة فاخرة وملمس ورقي يعيد لك متعة القراءة الحيَّة.
                         </p>
 
                         {/* Plan Selector */}
@@ -247,12 +114,12 @@ const MagazineProduct: React.FC = () => {
                                     <div className="flex items-center gap-3">
                                         {selectedPlan === 'annual' ? <CheckCircle className="text-samawah-teal" /> : <Circle className="text-gray-300" />}
                                         <div>
-                                            <span className="font-bold text-samawah-navy block">الباقة السنوية (تصلك الـ 4 أعداد)</span>
-                                            <span className="text-xs text-samawah-teal font-medium">شحن مجاني + توفير 17 ريال</span>
+                                            <span className="font-bold text-samawah-navy block">الباقة السنوية (تصلك 4 أعداد)</span>
+                                            <span className="text-xs text-samawah-teal font-medium">شحن مجاني + سعر أفضل</span>
                                         </div>
                                     </div>
                                     <div className="text-right">
-                                        <span className="block font-bold text-xl text-samawah-navy">205 ر.س</span>
+                                        <span className="block font-bold text-xl text-samawah-navy">255 ر.س</span>
                                     </div>
                                 </div>
 
@@ -270,7 +137,7 @@ const MagazineProduct: React.FC = () => {
                                         </div>
                                     </div>
                                     <div className="text-right">
-                                        <span className="block font-bold text-xl text-samawah-navy">45 ر.س</span>
+                                        <span className="block font-bold text-xl text-samawah-navy">75 ر.س</span>
                                     </div>
                                 </div>
 
@@ -282,8 +149,8 @@ const MagazineProduct: React.FC = () => {
                             <button
                                 onClick={handleAddToCart}
                                 className={`w-full px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg flex items-center justify-center gap-2 transform active:scale-[0.98] ${isAdded
-                                        ? 'bg-green-500 text-white'
-                                        : 'bg-samawah-navy text-white hover:bg-samawah-teal'
+                                    ? 'bg-green-500 text-white'
+                                    : 'bg-samawah-navy text-white hover:bg-samawah-teal'
                                     }`}
                             >
                                 <ShoppingBag size={20} />
@@ -388,8 +255,8 @@ const MagazineProduct: React.FC = () => {
                     </div>
 
                     {/* Abwab Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {magazineSections.map((section, idx) => (
+                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                        {MAGAZINE_SECTIONS.map((section, idx) => (
                             <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-samawah-beige hover:border-samawah-teal/30 hover:shadow-lg transition-all group flex flex-col h-full">
                                 <div className="h-48 overflow-hidden relative">
                                     <Image src={section.image} alt={section.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
